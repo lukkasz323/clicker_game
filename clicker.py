@@ -4,9 +4,6 @@ class Business:
     def __init__(self):
         self.credits = 0
 
-def update_screen(b):
-    print(f'[MINE]\n Credits: {b.credits}')      
-
 def main():
     WIDTH, HEIGHT = 960, 540
     FRAMERATE = 60
@@ -23,10 +20,12 @@ def main():
         # Keep steady framerate.
         clock.tick(FRAMERATE)
         
-        # Handle 'quit' events.
+        # Handle events.
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
+            if event.type == pygame.MOUSEBUTTONDOWN and pygame.mouse.get_pressed()[0] is True:
+                print('LMB down!')
         
         # Draw
         W.fill((16, 16, 16)) # Background
