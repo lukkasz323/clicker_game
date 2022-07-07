@@ -14,12 +14,13 @@ def main():
     W = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption('Mine Clicker')
     
-    FONT_SMALL = pygame.font.SysFont('tahoma', 16)
-    FONT_MEDIUM = pygame.font.SysFont('tahoma', 24)
+    FONT_SMALL = pygame.font.SysFont('tahoma', 18)
+    FONT_MEDIUM = pygame.font.SysFont('tahoma', 20)
     FONT_LARGE = pygame.font.SysFont('tahoma', 32)
-    logo = FONT_LARGE.render('Mine Clicker', True, 'yellow')
+    text_logo = FONT_LARGE.render('Mine Clicker', True, 'yellow')
     
     clock = pygame.time.Clock()
+    b = Business()
     
     # Tasks ran every frame.
     run = True
@@ -35,11 +36,13 @@ def main():
         # Logic
         fps = round(clock.get_fps())
         text_fps = FONT_SMALL.render(f'{fps}', True, 'white')
+        text_credits = FONT_MEDIUM.render(f'Credits: {b.credits}', True, 'white')
         
         # Draw
         W.fill((16, 16, 16)) # Background
-        W.blit(logo, (16, 8))
+        W.blit(text_logo, (16, 8))
         W.blit(text_fps, (480, 8))
+        W.blit(text_credits, (12, 64))
         
         # Update screen.
         pygame.display.update()
