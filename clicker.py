@@ -11,23 +11,28 @@ def main():
     WIDTH, HEIGHT = 960, 540
     FRAMERATE = 60
     
+    # Initial tasks.
     pygame.init()
     W = pygame.display.set_mode((WIDTH, HEIGHT))
     pygame.display.set_caption('Mine Clicker')
     clock = pygame.time.Clock()
     
+    # Tasks ran every frame.
     run = True
     while run:
         # Keep steady framerate.
         clock.tick(FRAMERATE)
         
-        # Handle 'quit' request.
+        # Handle 'quit' events.
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 run = False
         
-        # Update screen.
+        # Draw
         W.fill((16, 16, 16))
+        pygame.draw.rect(W, 'yellow', pygame.Rect(64, 64, 32, 32))
+        
+        # Update screen.
         pygame.display.update()
         
     pygame.quit()
