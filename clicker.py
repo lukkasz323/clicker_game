@@ -29,8 +29,7 @@ def main():
                 run = False
         
         # Draw
-        W.fill((16, 16, 16))
-        pygame.draw.rect(W, 'yellow', pygame.Rect(64, 64, 32, 32))
+        W.fill((16, 16, 16)) # Background
         
         # Update screen.
         pygame.display.update()
